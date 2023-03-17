@@ -5,14 +5,14 @@
 
 class Mul : public ASTNode {
   public:
-    //конструктор
+
     Mul(std::string val, ASTNode* ln, ASTNode* lr);
-    //деструктор
-    ~Mul( );
-    //конструктор копирования
+
+    ~Mul( )=default;
+
     Mul( const ASTNode & ast_ ) = delete;
-    //оператор присваивания
-    ASTNode & operator=(const ASTNode & other );
+
+    ASTNode & operator=(const ASTNode & other ) = delete;
 };
 
 #endif // MUL_HPP

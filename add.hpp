@@ -5,14 +5,13 @@
 
 class Add : public ASTNode {
   public:
-    //конструктор
     Add(std::string val, ASTNode* ln, ASTNode* lr);
-    //деструктор
-    ~Add( );
-    //конструктор копирования
+
+    ~Add( ) { std::cout << "destructor" << std::endl; }
+
     Add( const ASTNode & ast_ ) = delete;
-    //оператор присваивания
-    ASTNode & operator=(const ASTNode & other );
+
+    ASTNode & operator=(const ASTNode & other ) = delete;
 };
 
 #endif // ADD_HPP

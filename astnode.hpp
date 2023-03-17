@@ -6,9 +6,9 @@
 #include <cctype>
 #include <iostream>
 #include <string>
-
-
 #include "vector"
+
+#define Dbg
 
 
 
@@ -28,15 +28,13 @@ class ASTNode {
     std::string repr() const { return repr_; }
 
     void print(std::ostream &out) const;
-    void closeProgram() {clean_all_objects();}
-    void addRootToVect(ASTNode *root) { vect.push_back(root); }
+    void clear(ASTNode *node);
+
+
 
   private:
     void inner_print(std::ostream &out, size_t indent) const;
-
-    void clean_all_objects();
-
-    std::vector <ASTNode *> vect;
+    void clear_tree( ASTNode *node );
     std::string repr_;
     ASTNode *lhs_;
     ASTNode *rhs_;

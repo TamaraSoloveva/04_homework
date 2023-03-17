@@ -7,7 +7,7 @@
 class Number : public ASTNode {
   public:
 
-    Number(int val)  : ASTNode(std::to_string(val)), val_(val) {}
+    Number(int val)  : ASTNode(std::to_string(val)), val_(val) { std::cout<<"Numbr " << std::to_string(val) << std::endl; }
 
     int value() const { return val_; }
 

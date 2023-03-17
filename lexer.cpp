@@ -3,7 +3,6 @@
 
 #include "lexer.hpp"
 #include "iostream"
-
 #include <cctype>
 
 Lexer::Token Lexer::next_token() {

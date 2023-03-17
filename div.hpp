@@ -5,14 +5,13 @@
 
 class Div : public ASTNode {
   public:
-    //конструктор
     Div(std::string val, ASTNode* ln, ASTNode* lr) ;
-    //деструктор
-    ~Div( );
-    //конструктор копирования
+
+    ~Div( ) = default;
+
     Div( const ASTNode & ast_ ) = delete;
-    //оператор присваивания
-    ASTNode & operator=(const ASTNode & other );
+
+    ASTNode & operator=(const ASTNode & other ) = delete;
 };
 
 #endif // DIV_HPP

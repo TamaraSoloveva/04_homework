@@ -13,7 +13,7 @@ int main()
     ASTNode *ast = parser.parse();
     if (ast) {
          ast->print(std::cout);
-         ast->closeProgram();
+         ast->clear(ast);
     }
 
     return 0;

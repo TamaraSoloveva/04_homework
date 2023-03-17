@@ -4,14 +4,13 @@
 
 class Sub : public ASTNode {
   public:
-    //конструктор
     Sub(std::string val, ASTNode* ln, ASTNode* lr);
-    //деструктор
-    ~Sub( );
-    //конструктор копирования
+
+    ~Sub( )=default;
+
     Sub( const ASTNode & ast_ ) = delete;
-    //оператор присваивания
-    ASTNode & operator=(const ASTNode & other );
+
+    ASTNode & operator=(const ASTNode & other )= delete;
 };
 
 #endif // SUB_HPP

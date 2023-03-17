@@ -24,11 +24,9 @@ ASTNode *Parser::expr() {
             switch (op.front()) {
             case '+':
                 root = new Add("+", root, term());
-                if (root) root->addRootToVect(root);
                 break;
             case '-':
                 root = new Sub("-", root, term());
-                if (root) root->addRootToVect(root);
                 break;
             default:
                 return root;
@@ -55,11 +53,9 @@ ASTNode *Parser::term() {
             switch (op.front()) {
             case '*':
                 root = new Mul("*", root, prim());
-                if (root) root->addRootToVect(root);
                 break;
             case '/':
                 root = new Div("/", root, prim());
-                if (root) root->addRootToVect(root);
                 break;
             default:
                 return root;
@@ -80,11 +76,9 @@ ASTNode *Parser::prim() {
     switch (tok_) {
     case Token::Number:
         node = new Number(lexer_.get_number());
-        if (node) node->addRootToVect(node);
         break;
     case Token::Name:
         node = new Variable(lexer_.get_name());
-        if (node) node->addRootToVect(node);
         break;
     case Token::Error:
         std::cout << "Error!" << std::endl;
@@ -92,7 +86,6 @@ ASTNode *Parser::prim() {
     case Token::Lbrace:
         next_token();
         node = new Number(lexer_.get_number());
-        if (node) node->addRootToVect(node);
         break;
     default:
         break;
