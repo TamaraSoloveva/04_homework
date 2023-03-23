@@ -14,7 +14,6 @@ ASTNode *Parser::parse() { return expr(); }
 void Parser::next_token() { tok_ = lexer_.next_token(); }
 
 ASTNode *Parser::expr() {
-
     // parse addition and subsctruction
     ASTNode *root = term();
     for (;;) {
@@ -30,11 +29,9 @@ ASTNode *Parser::expr() {
                 break;
             default:
                 return root;
-
             }
             break;
         }
-
         default:
             return root;
         }
@@ -84,8 +81,12 @@ ASTNode *Parser::prim() {
         std::cout << "Error!" << std::endl;
         break;
     case Token::Lbrace:
-        next_token();
-        node = new Number(lexer_.get_number());
+        node = expr();
+       // next_token();
+        break;
+    case Token::Rbrace:
+
+
         break;
     default:
         break;

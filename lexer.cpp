@@ -22,15 +22,26 @@ Lexer::Token Lexer::next_token() {
                 next_char();
                 break;
             }
-            if (std::isalpha(ch_) || isbrace(ch_)) {
+
+            if (ch_ == ')') {
+                state_ = State::End;
+                return Token::Number;
+            }
+
+            if (std::isalpha(ch_) || isbrace(ch_) ) {
                 state_=State::Empty;
                 return Token::Error;
             }
+
 
             state_ = State::Empty;
             return Token::Number;
         case State::ReadName:
             if (end()) {
+                if (!znak) {
+                    state_=State::Empty;
+                    return Token::Error;
+                }
                 state_ = State::End;
                 return Token::Name;
             }
@@ -56,6 +67,7 @@ Lexer::Token Lexer::next_token() {
                     state_=State::Empty;
                     return Token::Error;
                 }
+                znak=1;
                 operator_ = ch_;
                 next_char();
                 return Token::Operator;
@@ -65,10 +77,7 @@ Lexer::Token Lexer::next_token() {
                 next_char();
                 return Token::Lbrace;
             }
-            if (ch_ == ')') {
-                next_char();
-                return Token::Rbrace;
-            }
+
             if (std::isdigit(ch_)) {
                 number_ = ch_ - '0';
                 sz_++;

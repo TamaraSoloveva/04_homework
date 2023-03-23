@@ -53,10 +53,13 @@ class Lexer {
     std::string operator_;
     char ch_;
     std::istream &in_;
+
     int sz_;
+//переменная отвечает за наличие знака в выражении
+    bool znak;
 };
 
-inline Lexer::Lexer(std::istream &in) : state_(State::Empty), number_(0), in_(in), sz_(0) {
+inline Lexer::Lexer(std::istream &in) : state_(State::Empty), number_(0), in_(in), sz_(0), znak(0) {
     next_char();
 }
 

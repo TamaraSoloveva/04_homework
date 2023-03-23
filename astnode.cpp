@@ -9,12 +9,12 @@ ASTNode::ASTNode(const std::string &repr) : repr_(repr), lhs_{nullptr}, rhs_{nul
 
 ASTNode::ASTNode(const std::string &repr, ASTNode *lhs, ASTNode *rhs) : repr_(repr), lhs_{lhs}, rhs_{rhs} {
 
-    std::cout << "ast node added, name: " << repr << std::endl;
+    //std::cout << "ast node added, name: " << repr << std::endl;
 
 }
 
 ASTNode::~ASTNode() {
-    std::cout << "ast node destr" << std::endl;
+    //std::cout << "ast node destr" << std::endl;
 
  /* delete lhs_;
     delete rhs_;
